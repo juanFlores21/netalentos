@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="registroJuez.css">
+        <title>REGISTRU JUEZ</title>
+    </head>
+    <body>
+        <!-- Barra superior con logotipo y boton de regresar -->
+        <div class="logo-bar">
+            <div class="back-button">
+                <a href="tipoDeUsuario.html">Regresar</a>
+            </div>
+            <img class="logo" src="img/logotipo.jpg" alt="Logotipo">
+        </div>
+
+        <!-- CUADRO -->
+        <section>
+            <div class="form-box">
+                <div class="form-value">
+                    <form action="menuJuez.html" method="post">
+                        <!-- INICIAR SESION -->
+                        <h2>Registro juez</h2>
+
+                        <!-- NOMBRE -->
+                        <div class="inputbox">
+                            <ion-icon name="person-outline"></ion-icon>
+                            <input type="text" required>
+                            <label for="">Nombre</label>
+                        </div>
+
+                        <!-- APELLIDOS-->
+                        <div class="inputbox">
+                            <ion-icon name="person-outline"></ion-icon>
+                            <input type="text" required>
+                            <label for="">Apellido Paterno</label>
+                        </div>
+                        <div class="inputbox">
+                            <ion-icon name="person-outline"></ion-icon>
+                            <input type="text" required>
+                            <label for="">Apellido Materno</label>
+                        </div>
+
+                        <!-- NACIONALIDAD -->
+                        <div class="dob-label">
+                            <p>Nacionalidad</p>
+                        </div>
+                        <div class="dob-inputbox">
+                            <select required>
+                                <option value="" disabled selected>Selecciona una opción</option>
+                                <option value="Española">Española</option>
+                                <option value="Mexicana">Mexicana</option>
+                                <option value="Argentina">Argentina</option>
+                            </select>
+                        </div>
+
+                        <!------------------------------------------------------------------------------>
+                        <!-- FECHA DE NACIMIENTO -->
+                        <div class="dob-label">
+                            <p><br>Fecha de nacimiento</p>
+                        </div>
+                        <div class="dob-inputbox">
+                            <!-- DÍA -->
+                            <select id="day" name="day" required>
+                                <option value="" disabled selected>Selecciona el día</option>
+                            </select>
+
+                            <!-- MES -->
+                            <select id="month" name="month" required>
+                                <option value="" disabled selected>Selecciona el mes</option>
+                            </select>
+
+                            <!-- AÑO -->
+                            <select id="year" name="year" required>
+                                <option value="" disabled selected>Selecciona el año</option>
+                            </select>
+                        </div>
+                        
+                        
+                        <!-- CORREO -->
+                        <div class="inputbox">
+                            <ion-icon name="mail-outline"></ion-icon>
+                            <input type="email" required>
+                            <label for="">Correo</label>
+                        </div>
+
+                        <!-- ENTRAR -->
+                        <button class="button-logIn">Aceptar</button>
+
+                        <!-- REGRESAR A INICIAR SESION -->
+                        <div class="register">
+                            <p>¿Ya tienes una cuenta? <a href="iniciarSesion.html">Iniciar sesión</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <!-- Script -->
+        <script src="registroJuez.js"></script>
+    </body>
+</html>

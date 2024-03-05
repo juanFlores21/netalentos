@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #f3f3f3;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+}
+/** Menu **/
+.nav {
+    width: 260px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0; /* Ajusta esto según sea necesario */
+    overflow-y: auto;
+    z-index: 1000;
+    background: #f8905f;
+}
+.nav__link{
+    color: #303440;
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+}
+.nav__link--inside{
+    border-radius: 6px;
+    padding-left: 20px;
+    text-align: left;
+}
+.nav__link--inside:hover{
+    background: #d65b22;
+    /**border-radius: 15px;**/
+}
+.list{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /**border-radius: 0 16px 16 px 0;**/
+    background: #f8905f;
+}
+.list__item{
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    overflow: hidden; 
+}
+.list__item--click{
+    cursor: pointer;
+
+}
+.list__button {
+    display: flex;
+    align-items: center;
+    gap: 0.5em; 
+    width: 70%;
+    margin: 0 auto;
+    text-align: left; 
+}
+.list__button:hover {
+    background-color: #d65b22; 
+    /**border-radius: 15px;**/
+    padding-right: 2px; 
+}
+.list__arrow{
+    margin-left: auto;
+    transition: transform .3s;
+}
+.arrow .list__arrow{
+    transform: rotate(90deg);
+}
+.list__show{
+    width: 80%;
+    margin-left: auto;
+    border-left: 2px solid #d65b22;
+    list-style: none;
+    transition: height .4s;
+    height: 0; 
+}
+.list__img{
+    padding-left: 5px;
+}
+/*** BARRA DE LOGOTIPO **/
+.logo-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 5px;
+    text-align: right;
+    z-index: 1000; 
+}
+.logo {
+    width: 200px; /* Ajusta el ancho de la imagen según tus necesidades */
+    height: auto; /* Mantiene la proporción original */
+    margin: 0px 25px;
+}
+/***********************************************************************************************/
+/***********************************************************************************************/
+/* Contenido */
+.content {
+    flex: 1; 
+    padding: 15px;
+    background: #f3f3f3;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 260px; /* Ancho del menú */
+    margin-top: 70px; /* Altura del logotipo */
+}
+h2{
+    font-size: 1.5em;
+    color: #f57f30;
+    text-align: left;
+}
