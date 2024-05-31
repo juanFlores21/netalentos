@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/iniciarSesion.css">
+    <link rel="stylesheet" href="iniciarSesion.css">
     <title>INICIAR SESION</title>
 </head>
 <body>
     <!-- Barra superior con logotipo -->
-    <div class="logo-bar">
+    <div class="logo-bar">    
         <img class="logo" src="img/logotipo.jpg" alt="Logotipo">
     </div>
     
@@ -47,21 +47,21 @@
                 </center>
 
                 <!--<form action="menuOrganizador.html" method="post">-->
-                <form action="valida/loginPart.php" method="post">
+                <form action="loginPart.php" method="post">
                     <!-- INICIAR SESION -->
                     <h2><br>Iniciar sesión</h2>                    
 
                     <!-- PEDIR USUARIO -->
                     <div class="inputbox">
                         <ion-icon name="person-outline"></ion-icon>
-                        <input type="text" name="usuario" required>
+                        <input type="text" name="nombre" required>
                         <label for="">Usuario</label>
                     </div>
 
                     <!-- CONTRASEÑA -->
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" name="contrasena" required>
+                        <input type="password" name="pwd" required>
                         <label for="">Contraseña</label>
                     </div>
                     <br>
@@ -69,7 +69,7 @@
                     <button type="submit" name="btningresar" class="button-logIn">Ingresar</button>                                   
                     <!-- REGISTRAR USUARIO -->
                     <div class="register">
-                        <p>No tengo cuenta <a href="tipoDeUsuario.html">Registrar</a></p>
+                        <p>No tengo cuenta <a href="tipoDeUsuario.php">Registrar Usuario</a></p>
                     </div>                   
                 </form>
             </div>

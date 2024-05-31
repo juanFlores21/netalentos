@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 87vh;
+    width: 100%;
+    background: url("img/fondo1.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.form-box{
+    position: relative;
+    width: 700px;
+    height: 640px;
+    background: #fff;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+h2{
+    font-size: 2em;
+    color: #f57f30;
+    text-align: center;
+}
+.inputbox{
+    position: relative;
+    margin: 30px 0;
+    width: 565px;
+    border-bottom: 2px solid #0e0d0d;
+}
+.inputbox label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #0e0d0d;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+input:focus ~ label,
+input:valid ~ label{
+top: -5px;
+}
+.inputbox input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding:0 35px 0 5px;
+    color: 0e0d0d;
+}
+.inputbox ion-icon{
+    position: absolute;
+    right: 8px;
+    color: #0e0d0d;
+    font-size: 1.2em;
+    top: 20px;
+}
+.button-logIn{
+    width: 120px;
+    height: 40px;
+    border-radius: 40px;
+    background: #f15c17;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    text-align: center;
+}
+.register{
+    font-size: .9em;
+    color: #0e0d0d;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+.register p a{
+    text-decoration: none;
+    color: #0e0d0d;
+    font-weight: 600;
+}
+.register p a:hover{
+    text-decoration: underline;
+}
+/*** IMAGEN ***/
+/**.imagen{
+    width: 450px;
+    margin-left: 30px;
+    margin-right: -25px;
+    border-radius: 0 20px 20px 0;
+}**/
+/*** BARRA DE LOGOTIPO **/
+.logo-bar {
+    background-color: white; /* Fondo blanco */
+    padding: 5px; /* Espaciado interno para mejorar la apariencia */
+    padding-right: 25px;
+    text-align: right; /* Alinea el texto a la izquierda */
+}
+.logo {
+    width: 200px; /* Ajusta el ancho de la imagen según tus necesidades */
+    height: auto; /* Mantiene la proporción original */
+    margin: 0px 5px;
+}
+/** BOTONES TIPO DE USUARIO **/
+.btn-group {
+    margin-top: 20px;
+    text-align: center;
+}
+.btn {
+    margin: 0 20px;
+    display: inline-block;
+    background-color: #dbd5d5; /* Fondo blanco */
+    border: 2px solid #000000; /* Borde negro */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Para que el texto no sobresalga si es más grande que la imagen */
+    width: 150px; /* Ancho fijo del botón */
+    height: 150px; /* Altura fija del botón */
+}
+.button-content {
+    text-align: center;
+}
+.img {
+    display: block;
+    margin: 0 auto;
+    width: 80px; /* Ancho fijo de la imagen */
+    height: 80px; /* Altura fija de la imagen */
+}
+.button-text {
+    display: block;
+    margin-top: 10px;
+}
+.buttons {
+    text-align: right;
+}

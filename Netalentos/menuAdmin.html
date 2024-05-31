@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="menuAdmin.css">
+        <title>MENU ORGANIZADOR</title>
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script> <!-- Aquí especificamos el idioma español -->
+    </head>
+    <body>
+        <!-- Barra superior con logotipo -->
+        <div class="logo-bar">
+            <img class="logo" src="img/logotipo.jpg" alt="Logotipo">
+        </div>
+
+        <!-- Menú -->
+        <nav class="nav">
+            <ul class="list">
+                <li class="list__item list__item--click">
+                    <div class="list__button list__button--click">
+                        <img src="assets/calendar.svg" class="list__img">
+                        <a href="#" class="nav__link" data-target="concurso">Crear concurso</a>
+                    </div>
+                </li>
+
+                <li class="list__item">
+                    <div class="list__button">
+                        <img src="assets/check.svg"class="list__img">
+                        <a href="#" class="nav__link" data-target="consultar">Consultar/ Monitorear</a>
+                    </div>
+                </li>
+
+                <li class="list__item">
+                    <div class="list__button">
+                        <img src="assets/logout.svg" class="list__img">
+                        <a href="iniciarSesion.html" class="nav__link">Cerrar Sesión</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Contenido principal -->
+        <div class="content">
+            <!---------------------------------------------------------------------------------->
+            <!-- CREAR CONCURSO -->
+            <div class="concurso">
+                <h2>Crear concurso</h2><br>
+                <div class="crear_conc">
+                    <!-- Nombre del concurso -->
+                    <label for="nombre_concurso">Nombre del concurso:</label><br>
+                    <input type="text" id="nombre_concurso" required>
+                    <br>
+                    <!-- Categoria -->
+                    <br>
+                    <div class="dob-label">
+                        <p>Categoria</p>
+                    </div>
+                    <div class="dob-inputbox">
+                        <select id="categoria" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="baile">Baile</option>
+                            <option value="canto">Canto</option>
+                            <option value="dibujo">Dibujo</option>
+                        </select>
+                    </div>
+                    <br>
+                    <!-------------------->
+                    <!-- Criterios para canto -->
+                    <div id="criterios_canto" class="criterios" style="display: none;">
+                        <div class="dob-label">
+                            <p>CRITERIOS PARA CANTO: </p>
+                        </div>
+                        <div class="dob-inputbox">
+                            <!-- Tono de voz -->
+                            <div class="criterio">
+                                <label for="tono_voz">Tono de voz </label>
+                                <select id="tono_voz">
+                                    <option value="1-4">1-4</option>
+                                    <option value="1-5">1-5</option>
+                                    <option value="1-10">1-10</option>
+                                </select>
+                            </div>
+                            <!-- Dominio de la canción -->
+                            <div class="criterio">
+                                <label for="dominio_cancion">Dominio de la canción </label>
+                                <select id="dominio_cancion">
+                                    <option value="1-4">1-4</option>
+                                    <option value="1-5">1-5</option>
+                                    <option value="1-10">1-10</option>
+                                </select>
+                            </div>
+                            <!-- Vivencia -->
+                            <div class="criterio">
+                                <label for="vivencia">Vivencia </label>
+                                <select id="vivencia">
+                                    <option value="1-4">1-4</option>
+                                    <option value="1-5">1-5</option>
+                                    <option value="1-10">1-10</option>
+                                </select>
+                            </div>
+                            <!-- Disciplina -->
+                            <div class="criterio">
+                                <label for="disciplina">Disciplina </label>
+                                <select id="disciplina">
+                                    <option value="1-4">1-4</option>
+                                    <option value="1-5">1-5</option>
+                                    <option value="1-10">1-10</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-------------------->
+                    <!-- Criterios para baile -->
+                    <div id="criterios_baile" class="criterios" style="display: none;">
+                        <div class="dob-label">
+                            <p>CRITERIOS PARA BAILE:</p>
+                        </div>
+                        <div class="dob-inputbox">
+                            <!-- Coordinación -->
+                            <div class="criterio">
+                                <label for="coordinacion">Coordinación </label>
+                                <select id="coordinacion">
+                                    <option value="1-4">1-4</option>
+                                    <option value="1-5">1-5</option>
+                                    <option value="1-10">1-10</option>
+                                </select>
+                            </div>
+                            <!-- Expresión corporal -->
+                            <div class="criterio">
+                                <label for="expresion_corporal">Expresión corporal </label>
+                                <select id="expresion_corporal">
+                                    <option value="1-4">1-4</option>
+                                    <option value="1-5">1-5</option>
+                                    <option value="1-10">1-10</option>
+                                </select>
+                            </div>
+                            <!-- Creatividad -->
+                            <div class="criterio">
+                                <label for="creatividad">Creatividad </label>
+                                <select id="creatividad">
+                                    <option value="1-4">1-4</option>
+                                    <option value="1-5">1-5</option>
+                                    <option value="1-10">1-10</option>
+                                </select>
+                            </div>
+                            <!-- Sincronización -->
+                            <div class="criterio">
+                                <label for="sincronizacion">Sincronización </label>
+                                <select id="sincronizacion">
+                                    <option value="1-4">1-4</option>
+                                    <option value="1-5">1-5</option>
+                                    <option value="1-10">1-10</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-------------------->
+                    <!-- Criterios para dibujo -->
+                    <div id="criterios_dibujo" class="criterios" style="display: none;">
+                        <div class="dob-label">
+                            <p>CRITERIOS PARA DIBUJO: </p>
+                        </div>
+                        <div class="dob-inputbox">
+                            <!-- Creatividad -->
+                            <div class="criterio">
+                                <label for="creatividad_dibujo">Creatividad </label>
+                                <select id="creatividad_dibujo">
+                                    <option value="1-4">1-4</option>
+                                    <option value="1-5">1-5</option>
+                                    <option value="1-10">1-10</option>
+                                </select>
+                            </div>
+                            <!-- Técnica -->
+                            <div class="criterio">
+                                <label for="tecnica_dibujo">Técnica </label>
+                                <select id="tecnica_dibujo">
+                                    <option value="1-4">1-4</option>
+                                    <option value="1-5">1-5</option>
+                                    <option value="1-10">1-10</option>
+                                </select>
+                            </div>
+                            <!-- Originalidad -->
+                            <div class="criterio">
+                                <label for="originalidad_dibujo">Originalidad </label>
+                                <select id="originalidad_dibujo">
+                                    <option value="1-4">1-4</option>
+                                    <option value="1-5">1-5</option>
+                                    <option value="1-10">1-10</option>
+                                </select>
+                            </div>
+                            <!-- Detalles -->
+                            <div class="criterio">
+                                <label for="detalles_dibujo">Detalles </label>
+                                <select id="detalles_dibujo">
+                                    <option value="1-4">1-4</option>
+                                    <option value="1-5">1-5</option>
+                                    <option value="1-10">1-10</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hora_fecha">
+                    <!-- Campo de entrada de hora en formato de 24 horas -->
+                    <div class="dob-label">
+                        <p>Hora del evento</p>
+                    </div>
+                    <div class="dob-inputbox">
+                        <input type="text" id="hora_evento" placeholder="HH:MM" pattern="(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]" required>
+                    </div>
+                    <br>
+                    <!-- Incluir Flatpickr y el idioma en español -->
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+                    <!-- Campo de entrada de fecha -->
+                    <div class="dob-label">
+                        <p>Fecha del evento</p>
+                    </div>
+                    <div class="dob-inputbox">
+                        <input type="text" id="fecha_evento" placeholder="Selecciona una fecha" required>
+                    </div>
+                    <br>
+                </div>
+                <div class="info">
+                    <!-- Campo de entrada de información adicional -->
+                    <div class="dob-label">
+                        <p>Información adicional del evento</p>
+                    </div>
+                    <div class="dob-inputbox">
+                        <textarea id="informacion_evento" rows="12" style="resize: none;" placeholder="Ingrese información adicional del evento"></textarea>
+                    </div> 
+                    <br> 
+                    <!-- CREAR CONCURSO -->
+                    <button class="boton-crear-conc">Crear concurso</button>
+                </div>
+            </div>
+            <!------------------------------------------------------------------------------->
+            <!---------------------------------------------------------------------------------->
+            <!-- CONSULTAR/ MONITOREAR -->
+            <div class="consultar">
+                <h2>Consultar/ Monitorear</h2>
+            </div>
+            <!------------------------------------------------------------------------------->
+        </div>
+
+        <!-- Script -->
+        <script src="menuAdmin.js"></script>
+    </body>
+</html>

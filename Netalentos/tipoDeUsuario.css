@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+}
+
+/*** BARRA DE LOGOTIPO **/
+.logo-bar {
+    background-color: white; /* Fondo blanco */
+    padding: 5px; /* Espaciado interno para mejorar la apariencia */
+    display: flex; /* Cambiado a flex para alinear los elementos */
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    padding-right: 25px;
+}
+.logo {
+    width: 200px; /* Ajusta el ancho de la imagen según tus necesidades */
+    height: auto; /* Mantiene la proporción original */
+}
+
+/** BOTON REGRESAR **/
+.back-button {
+    margin-right: 10px; /* Ajusta el margen derecho según sea necesario */
+}
+.back-button a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1em;
+    padding: 10px 20px;
+    background-color: #f15c17;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.back-button a:hover {
+    background-color: #f0a26e;
+    color: #070707;
+}
+/*** CUADRO **/
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    backdrop-filter: blur(15px);
+    background: url('img/fondo1.jpg')repeat;
+    background-position: center;
+    background-size: cover;
+}
+.form-box{
+    position: relative;
+    width: 570px;
+    height: 330px;
+    background-color: #fff;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+h2{
+    font-size: 2em;
+    color: #f57f30;
+    text-align: center;
+    margin-top: 5px;
+}
+/** BOTONES TIPO DE USUARIO **/
+.btn-group {
+    margin-top: 20px;
+    text-align: center;
+}
+.btn {
+    margin: 0 20px;
+    display: inline-block;
+    background-color: #dbd5d5; /* Fondo blanco */
+    border: 2px solid #000000; /* Borde negro */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Para que el texto no sobresalga si es más grande que la imagen */
+    width: 150px; /* Ancho fijo del botón */
+    height: 150px; /* Altura fija del botón */
+}
+.button-content {
+    text-align: center;
+}
+.img {
+    display: block;
+    margin: 0 auto;
+    width: 80px; /* Ancho fijo de la imagen */
+    height: 80px; /* Altura fija de la imagen */
+}
+.button-text {
+    display: block;
+    margin-top: 10px;
+}

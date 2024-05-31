@@ -21,54 +21,6 @@ $sql = "SELECT nombre, paterno, materno, edad, fechaNac, email, calle, num, colo
 $resultado = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($resultado);
 
-// Consulta para obtener el nombre del concurso
-$sql_concu = "SELECT c.nombre AS nombreConcurso, c.idConcurso FROM inscripcion i JOIN concurso c ON i.idConcurso = c.idConcurso WHERE i.idParticipante = $idParticipante;";
-$result = $conn->query($sql_concu);
-
-// Obtener el nombre del concurso y su id
-if ($result->num_rows > 0) {
-    $roro = $result->fetch_assoc();
-    $nombreConcurso = $roro["nombreConcurso"];
-    $idConcurso = $roro["idConcurso"];
-} else {
-    $nombreConcurso = null;
-    $idConcurso = null;
-}
-
-// Consulta para obtener los criterios y calificaciones
-$criteriosCalificaciones = array();
-$totalCalificaciones = 0;
-$countCalificaciones = 0;
-
-if ($idConcurso !== null) {
-    $sql_calif = "SELECT cr.NomCriterio, cal.Calificacion
-                  FROM inscripcion i
-                  JOIN concurso c ON i.idConcurso = c.idConcurso
-                  JOIN categorias cat ON c.idCategorias = cat.idCategorias
-                  JOIN criterios cr ON cat.idCategorias = cr.idCategorias
-                  LEFT JOIN calificacion cal ON cr.idCriterios = cal.idCriterios 
-                                              AND cal.idParticipante = i.idParticipante 
-                                              AND cal.idConcurso = i.idConcurso
-                  WHERE i.idParticipante = $idParticipante AND i.idConcurso = $idConcurso";
-
-    $resultao = $conn->query($sql_calif);
-
-    // Almacenar los resultados en un array
-    if ($resultao->num_rows > 0) {
-        while ($ro = $resultao->fetch_assoc()) {
-            $criteriosCalificaciones[] = $ro;
-            if (isset($ro['Calificacion'])) {
-                $totalCalificaciones += $ro['Calificacion'];
-                $countCalificaciones++;
-            }
-        }
-    }
-}
-
-// Calcular el promedio de las calificaciones
-$promedioCalificaciones = $countCalificaciones > 0 ? $totalCalificaciones / $countCalificaciones : "N/A";
-
-
 
 
 // Consulta para obtener estados
@@ -144,14 +96,14 @@ $conn->close();
             <li class="list__item">
                 <div class="list__button">
                     <img src="assets/edit.svg" class="list__img">
-                    <a href="#" class="nav__link" data-target="inscripcion">Inscripción</a>
+                    <a href="menuPart.php" class="nav__link" data-target="inscripcion">Inscripción</a>
                 </div>
             </li>
 
             <li class="list__item">
                 <div class="list__button">
                     <img src="assets/user.svg" class="list__img">
-                    <a href="#" class="nav__link" data-target="consult_calif">Consultar calificaciones</a>
+                    <a href="menuPart.php" class="nav__link" data-target="consult_calif">Consultar calificaciones</a>
                 </div>
             </li>
 
@@ -195,12 +147,11 @@ $conn->close();
 
                     <!-- CORREO -->
                     <div class="inputbox">
-                    <ion-icon name="mail-outline"></ion-icon>
-                    <input type="hidden" name="correo_original" value="<?php echo $correo ?>">
-                    <input type="email" name="correo" required oninput="validateEmail(this.value)" value="<?php echo $correo ?>">
-                    <label for="correo">Correo</label>
-                </div>
-                <p id="errorEmail" style="display: none;">Correo electrónico no válido</p>
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="email" name="correo" id="correo" required oninput="validateEmail(this.value)" value="<?php echo $correo ?>" disabled>
+                        <label for="correo">Correo</label>
+                    </div>
+                    <p id="errorEmail" style="display: none;">Correo electrónico no válido</p>                   
 
                     <!-- EDAD -->
                     <div class="inputbox">
@@ -241,12 +192,12 @@ $conn->close();
                     </div>
 
                     <!-- Botones de modificar y guardar -->
-                    <div class="buttons">                                        
+                    <div class="buttons">                        
+                
                         <button type="submit" id="guardarButton" style="display: none;">Guardar</button>
-                        <button type="button" id="editarButton">Editar</button>
                     </div>
                 </form>
-                
+                <button type="button" id="editarButton">Editar</button>
             </div>
         </div>      
 
@@ -254,94 +205,13 @@ $conn->close();
 
         <!---------------------------------------------------------------------------------->
         <!---------------------------------------------------------------------------------->
-       <!-- INSCRIPCIÓN -->
-            <div class="inscripcion">
-                <h2>Inscripción</h2>
-                <div class="inscripcion-container">
-                    <?php
-                    include 'inscripcion.php';
-
-                    foreach ($concursos as $concurso) {
-                        echo '<div class="inscripcion-card">';
-                        echo '<h3>Nombre del concurso: ' . htmlspecialchars($concurso['nombre']) . '</h3>';
-                        echo '<p>Fecha: ' . htmlspecialchars($concurso['fechaInicio']) . '</p>';
-                        echo '<p>Hora: ' . htmlspecialchars($concurso['horaInicio']) . '</p>';
-                        echo '<form action="inscripcion.php" method="post">';
-                        echo '<input type="hidden" name="idConcurso" value="' . htmlspecialchars($concurso['idConcurso']) . '">';
-                        echo '<input type="hidden" name="idParticipante" value="' . htmlspecialchars($idParticipante) . '">';
-                        echo '<button type="submit" class="inscribir-button">Inscribir</button>';
-                        echo '</form>';
-                        echo '</div>';
-                    }
-                    ?>
-                </div>
-            </div>
+       <!-- INSCRIPCIÓN -->         
 
         <!------------------------------------------------------------------------------->
 
         <!---------------------------------------------------------------------------------->
         <!-- CONSULTAR CALIFICACIONES -->
-        <div class="consult_calif">
-            <h2>Consultar calificaciones</h2>
-            <div class="container">
-                <div class="nombre">
-                    <h3><?php echo $nombre ?></h3>
-                    <div class="data-content"></div>
-                </div>
-                <div class="apellido-paterno">
-                    <h3><?php echo $apPaterno ?></h3>
-                    <div class="data-content"></div>
-                </div>
-                <div class="apellido-materno">
-                    <h3><?php echo $apMaterno ?></h3>
-                    <div class="data-content"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="categoria">
-                    <h3><?php echo $nombreConcurso; ?></h3>
-                    <div class="data-content"></div>
-                </div>
-            </div>
-            <br><br>
-            <p>Criterios evaluados: </p>
-            <table class="user-table">
-    <thead>
-        <tr>
-            <th></th>
-            <?php
-            // Desplegar los resultados en las celdas
-            for ($i = 0; $i < 4; $i++) {
-                if (isset($criteriosCalificaciones[$i])) {
-                    echo "<th>" . $criteriosCalificaciones[$i]['NomCriterio'] . "</th>";
-                } else {
-                    echo "<th>N/A</th>"; // Si hay menos de 4 criterios, llenar con "N/A"
-                }
-            }
-            ?>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><h3>Calificación</h3></td>
-            <?php
-            for ($i = 0; $i < 4; $i++) {
-                if (isset($criteriosCalificaciones[$i])) {
-                    $calificacion = isset($criteriosCalificaciones[$i]['Calificacion']) ? $criteriosCalificaciones[$i]['Calificacion'] : "N/A";
-                    echo "<td>" . $calificacion . "</td>";
-                } else {
-                    echo "<td>N/A</td>"; // Si hay menos de 4 calificaciones, llenar con "N/A"
-                }
-            }
-            ?>
-        </tr>
-        <tr>
-            <td colspan="4">Resultado final:</td>
-            <td><?php echo $promedioCalificaciones; ?></td>
-        </tr>
-    </tbody>
-</table>
-        </div>
+        
         <!------------------------------------------------------------------------------->
     </div>
     <!---------------------------------------------------------------------------------------------------->

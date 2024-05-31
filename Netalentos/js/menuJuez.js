@@ -1,35 +1,19 @@
 //////////////////////////////////////////////////////////////////////////////////////////
-// FECHA DE NACIMIENTO
-// Rellenar opciones para DÍA
-var daySelect = document.getElementById("day");
-for (var i = 1; i <= 31; i++) {
-    var option = document.createElement("option");
-    option.value = i;
-    option.text = i;
-    daySelect.add(option);
-}
+// RELLENAR EDAD
+// Rellenar edad
+document.addEventListener("DOMContentLoaded", function() {
+    var edadSelect = document.getElementById("edad");
 
-// Rellenar opciones para MES
-var monthSelect = document.getElementById("month");
-var months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-for (var i = 0; i < months.length; i++) {
-    var option = document.createElement("option");
-    option.value = i + 1; // Los meses comienzan desde 1
-    option.text = months[i];
-    monthSelect.add(option);
-}
-
-// Rellenar opciones para AÑO
-var yearSelect = document.getElementById("year");
-for (var i = 1980; i <= 2015; i++) {
-    var option = document.createElement("option");
-    option.value = i;
-    option.text = i;
-    yearSelect.add(option);
-}
+    // Autorellenar el combo box con valores del 18 al 30
+    for (var i = 18; i <= 30; i++) {
+        var option = document.createElement("option");
+        option.value = i;
+        option.text = i;
+        edadSelect.appendChild(option);
+    }
+});
 
 //////////////////////////////////////////////////////////////////////////////////////////
-// OPCIONES DE EDITAR
 // Obtener los elementos relevantes
 const editarButton = document.getElementById('editarButton');
 const guardarButton = document.getElementById('guardarButton');
@@ -55,12 +39,19 @@ editarButton.addEventListener('click', () => {
 
 // Agregar evento al botón de guardar
 guardarButton.addEventListener('click', () => {
-    // Deshabilitar campos y mostrar el botón de editar
-    toggleCampos(true);
+    // Deshabilitar campos (¡comentado para mantener los campos habilitados!) y mostrar el botón de editar
+    // toggleCampos(true);
     guardarButton.style.display = 'none';
     editarButton.style.display = 'block';
-});
 
+    // Aquí puedes agregar código adicional si necesitas enviar los datos mediante AJAX u otro método.
+    // Por ejemplo:
+    // document.getElementById('updateForm').submit(); // Esto enviará el formulario mediante el método POST.
+
+    // O si necesitas realizar alguna acción después de enviar el formulario, como redireccionar a otra página:
+    // window.location.href = 'pagina_de_confirmacion.php';
+});
+ 
 //////////////////////////////////////////////////////////////////////////////////////////
 // MOSTRAR SOLO CIERTOS DIV
 document.addEventListener('DOMContentLoaded', function () {

@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #f3f3f3;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+}
+/** Menu **/
+.nav {
+    width: 260px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0; /* Ajusta esto según sea necesario */
+    overflow-y: auto;
+    z-index: 1000;
+    background: #f8905f;
+}
+.nav__link{
+    color: #303440;
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+}
+.nav__link--inside{
+    border-radius: 6px;
+    padding-left: 20px;
+    text-align: left;
+}
+.nav__link--inside:hover{
+    background: #d65b22;
+    /**border-radius: 15px;**/
+}
+.list{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /**border-radius: 0 16px 16 px 0;**/
+    background: #f8905f;
+}
+.list__item{
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    overflow: hidden; 
+}
+.list__item--click{
+    cursor: pointer;
+
+}
+.list__button {
+    display: flex;
+    align-items: center;
+    gap: 0.5em; 
+    width: 70%;
+    margin: 0 auto;
+    text-align: left; 
+}
+.list__button:hover {
+    background-color: #d65b22; 
+    /**border-radius: 15px;**/
+    padding-right: 2px; 
+}
+.list__arrow{
+    margin-left: auto;
+    transition: transform .3s;
+}
+.arrow .list__arrow{
+    transform: rotate(90deg);
+}
+.list__show{
+    width: 80%;
+    margin-left: auto;
+    border-left: 2px solid #d65b22;
+    list-style: none;
+    transition: height .4s;
+    height: 0; 
+}
+.list__img{
+    padding-left: 5px;
+}
+/*** BARRA DE LOGOTIPO **/
+.logo-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 5px;
+    text-align: right;
+    z-index: 1000; 
+}
+.logo {
+    width: 200px; /* Ajusta el ancho de la imagen según tus necesidades */
+    height: auto; /* Mantiene la proporción original */
+    margin: 0px 25px;
+}
+/***********************************************************************************************/
+/***********************************************************************************************/
+/* Contenido */
+.content {
+    flex: 1; 
+    padding: 15px;
+    background: #f3f3f3;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 260px; /* Ancho del menú */
+    margin-top: 70px; /* Altura del logotipo */
+}
+h2{
+    font-size: 1.5em;
+    color: #f57f30;
+    text-align: left;
+}
+
+/** Cuadro de texto **/
+.dob-inputbox textarea {
+    width: 340px; /* Ancho automático */
+    height: 150px; /* Altura específica en píxeles */
+}
+
+/** Acomo uno a lado del otro **/
+.crear_conc {
+    float: left;
+    width: calc(330px - 10px); /* Ancho del contenedor, ajustado para tres elementos con un espacio entre ellos */
+    margin-right: 10px; /* Espacio entre elementos */
+}
+.hora_fecha {
+    float: left;
+    width: calc(380px - 10px); /* Ancho del contenedor, ajustado para tres elementos con un espacio entre ellos */
+    margin-right: 10px; /* Espacio entre elementos */
+}
+.info {
+    float: left;
+    width: calc(340px - 10px); /* Ancho del contenedor, ajustado para tres elementos con un espacio entre ellos */
+}
+
+/** Criterios **/
+.criterio {
+    margin-bottom: 10px; /* Añade un espacio entre los criterios */
+}
+
+/** BOTON REGRESAR **/
+.boton-crear-conc {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1em;
+    padding: 10px 20px;
+    background-color: #f15c17;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    float: right; /* Alinea el botón a la derecha */
+    margin-right: 10px; /* Ajusta el margen derecho según sea necesario */
+}
+.boton-crear-conc:hover {
+    background-color: #f0a26e;
+    color: #070707;
+}
+
+/** Barra buscador **/
+.search-container {
+    display: flex;
+    width: 1050px;
+}
+.search-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+.search-container button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f15c17;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+.search-container button:hover {
+    background-color: #f0a26e;
+}
+
+/* Tabla */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.user-table th, .user-table td {
+    border: 1px solid #f0f0f0; 
+    padding: 10px;
+    text-align: left;
+    color: #000000; 
+    font-size: 12px; /* Tamaño de fuente */
+}
+.user-table thead th {
+    background-color: #fda66c; 
+}
+.user-table tbody tr td {
+    background-color: #ffffff; 
+}
+.user-table tbody td:first-child {
+    background-color: #ffffff; 
+}
